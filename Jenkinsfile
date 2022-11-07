@@ -12,7 +12,7 @@ pipeline {
                 sh 'chmod +x gradlew'
                 sh './gradlew build'
                 echo 'Deploy..'
-                deploy adapters: [tomcat9(credentialsId: 'tomcat_misaka', path: '', url: 'http://192.168.11.5:8012')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'my-auth', path: '', url: 'http://172.31.0.2:8012/')], contextPath: 'jenkinssample', war: '**/*.war'
             }
         }
     }
